@@ -38,7 +38,7 @@ class SeleniumDriver(object):
                                  ignored_exceptions=[NoSuchElementException,
                                                      ElementNotVisibleException,
                                                      ElementNotSelectableException])
-            element = wait.until(EC.element_to_be_clickable((by_type, locator)))
+            element = wait.until(EC.presence_of_element_located((by_type, locator)))
             element = self.driver.find_element(by_type, locator)
         except:
             pytest.fail('Element not found with locator: ' + locator +
