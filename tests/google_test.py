@@ -12,4 +12,4 @@ class TestGoogle:
 
     def test_search(self):
         self.driver.get('http://google.com')
-        self.gp.search_google()
+        self.gp.check_currency_box()

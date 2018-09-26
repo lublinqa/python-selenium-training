@@ -60,3 +60,13 @@ class SeleniumDriver(object):
         except:
             pytest.fail('Cannot click on the element with locator: ' + locator +
                         ' locatorType: ' + locator_type)
+
+    def element_presence(self, locator, locator_type='css'):
+        try:
+            element = self.get_element(locator, locator_type)
+            if element is not None:
+                return True
+            else:
+                return False
+        except:
+            return False

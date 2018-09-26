@@ -10,10 +10,13 @@ class GooglePage(SeleniumDriver):
 
     # Locators
     search_field_id = 'lst-ib'
+    currency_box = '.dDoNo'
 
     # Variables
-    search_term = 'Szukaj w google'
+    search_term = '1 USD to PLN'
 
-    def search_google(self):
+    def check_currency_box(self):
+        self.element_presence(self.search_field_id, locator_type='id')
         self.send_keys(self.search_term, self.search_field_id, locator_type='id')
         self.get_element(self.search_field_id, locator_type='id').send_keys(Keys.RETURN)
+        assert self.element_presence(self.currency_box)
